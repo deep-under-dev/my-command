@@ -1,64 +1,69 @@
-# /deep-review - 심층 코드 리뷰
+# /deep-review - Comprehensive Code Review
 
-## 사용법
+## Usage
 ```
-/deep-review [대상]
+/deep-review [target]
 ```
 
-대상:
-- 파일 경로: `/deep-review src/auth.ts`
-- 디렉토리: `/deep-review src/services/`
+### Targets
+- File: `/deep-review src/auth.ts`
+- Directory: `/deep-review src/services/`
 - PR: `/deep-review #123`
-- 전체: `/deep-review --all` (토큰 많이 씀!)
+- Focused: `/deep-review src/ --security`
 
-## 체크 항목
+## Checklist
 
-### 보안
-- [ ] 인젝션 취약점 (SQL, XSS, 커맨드)
-- [ ] 인증/권한 문제
-- [ ] 시크릿 하드코딩
-- [ ] 안전하지 않은 데이터 처리
+### Security
+- [ ] Injection vulnerabilities (SQL, XSS, command)
+- [ ] Authentication/authorization flaws
+- [ ] Hardcoded secrets or credentials
+- [ ] Insecure data handling
+- [ ] Input validation
 
-### 품질
-- [ ] 버그 가능성
-- [ ] 엣지 케이스 처리
-- [ ] 에러 핸들링
-- [ ] 코드 중복
+### Quality
+- [ ] Potential bugs
+- [ ] Edge case handling
+- [ ] Error handling
+- [ ] Code duplication
+- [ ] Dead code
 
-### 성능
-- [ ] N+1 쿼리
-- [ ] 불필요한 연산
-- [ ] 메모리 누수 가능성
+### Performance
+- [ ] N+1 queries
+- [ ] Unnecessary computations
+- [ ] Memory leaks
+- [ ] Blocking operations
 
-### 유지보수
-- [ ] 코드 가독성
-- [ ] 테스트 커버리지
-- [ ] 문서화
+### Maintainability
+- [ ] Code readability
+- [ ] Test coverage
+- [ ] Documentation
+- [ ] Naming conventions
 
-## 출력
+## Output Format
 ```markdown
-## 리뷰 결과: [대상]
+## Review: [target]
 
-### 요약
-- 심각도: 🔴 높음 / 🟡 중간 / 🟢 낮음
-- 주요 이슈: N개
+### Summary
+- Severity: 🔴 High / 🟡 Medium / 🟢 Low
+- Issues found: N
 
-### 🔴 심각 (즉시 수정 필요)
-#### 1. [이슈 제목]
-- 파일: `path/to/file.ts:123`
-- 문제: ...
-- 해결: ...
+### 🔴 Critical (Fix Immediately)
+#### 1. [Issue Title]
+- File: `path/to/file.ts:123`
+- Problem: ...
+- Solution: ...
 
-### 🟡 개선 필요
+### 🟡 Should Fix
 ...
 
-### 🟢 제안
+### 🟢 Suggestions
 ...
 
-### 잘된 점
-...
+### Strengths
+- What's done well
 ```
 
-## 토큰 절약 팁
-- 전체 리뷰 대신 변경된 파일만
-- 특정 체크 항목만: `/deep-review src/ --security`
+## Token Optimization
+- Review changed files only, not entire codebase
+- Use `--security` or `--performance` for focused reviews
+- For large PRs, review file by file

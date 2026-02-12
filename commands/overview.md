@@ -1,46 +1,55 @@
-# /overview - 전체 프로덕트 파악
+# /overview - Project Analysis
 
-## 사용법
+## Usage
 ```
-/overview [경로]
+/overview [path]
 ```
 
-## 동작
-1. 프로젝트 구조 분석
-2. 주요 파일/디렉토리 파악
-3. 기술 스택 확인
-4. 아키텍처 요약
+## Purpose
+Quickly understand a codebase before making changes. Run this first when onboarding to a new project.
 
-## 출력
+## Analysis Steps
+1. Scan directory structure
+2. Identify tech stack
+3. Find entry points
+4. Understand architecture
+5. Locate build/test commands
+
+## Output Format
 ```markdown
-## 프로젝트 개요
+## Project Overview
 
-### 기술 스택
-- 언어: ...
-- 프레임워크: ...
-- 주요 라이브러리: ...
+### Tech Stack
+- Language: ...
+- Framework: ...
+- Key dependencies: ...
 
-### 구조
+### Structure
 ```
 src/
-├── components/  # UI 컴포넌트
-├── services/    # 비즈니스 로직
-└── utils/       # 유틸리티
+├── components/  # UI components
+├── services/    # Business logic
+└── utils/       # Utilities
 ```
 
-### 핵심 파일
-- `src/index.ts` - 진입점
-- `src/config.ts` - 설정
+### Entry Points
+- `src/index.ts` - Main entry
+- `src/config.ts` - Configuration
 
-### 아키텍처
-[간단한 설명]
+### Architecture
+[Brief description of how the system works]
 
-### 빌드/실행
-- 빌드: `npm run build`
-- 테스트: `npm test`
-- 실행: `npm start`
+### Commands
+- Build: `npm run build`
+- Test: `npm test`
+- Dev: `npm run dev`
+
+### Key Patterns
+- [Pattern 1]
+- [Pattern 2]
 ```
 
-## 팁
-- 처음 프로젝트 볼 때 먼저 실행
-- 결과를 CLAUDE.md에 저장하면 좋음
+## Tips
+- Save output to CLAUDE.md for future sessions
+- Run before any major changes
+- Use to onboard team members

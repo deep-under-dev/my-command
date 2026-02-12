@@ -1,62 +1,71 @@
 # My Commands
 
-사장님의 Claude Code 커맨드 & 스킬 모음
+A collection of Claude Code commands and skills optimized for efficient development workflows.
 
-## 구조
+## Structure
 
 ```
 my-command/
-├── commands/          # 슬래시 커맨드
-│   ├── build.md       # /build - 기능 만들기
-│   ├── overview.md    # /overview - 프로젝트 파악
-│   ├── deep-review.md # /deep-review - 심층 코드 리뷰
-│   ├── plan.md        # /plan - 계획 세우기
-│   ├── step.md        # /step - 단계별 실행
-│   └── review.md      # /review - 간단 리뷰
-├── skills/            # 스킬 (지식/워크플로우)
-│   ├── token-optimization/  # 토큰 절약
-│   ├── verification/        # 검증 루프
-│   └── exploration/         # 탐색 우선
-├── rules/             # 규칙
-│   └── workflow.md    # 워크플로우 규칙
-├── agents/            # 서브에이전트 (예정)
-└── .claude/           # Claude 설정
+├── commands/              # Slash commands
+│   ├── build.md           # /build - Full feature implementation
+│   ├── overview.md        # /overview - Project analysis
+│   ├── deep-review.md     # /deep-review - Comprehensive code review
+│   ├── plan.md            # /plan - Implementation planning
+│   ├── step.md            # /step - Step-by-step execution
+│   └── review.md          # /review - Quick code review
+├── skills/                # Knowledge and workflows
+│   ├── token-optimization/    # Minimize token usage
+│   ├── verification/          # Self-verification loops
+│   └── exploration/           # Explore before coding
+├── rules/                 # Always-follow guidelines
+│   └── workflow.md        # Standard workflow rules
+├── agents/                # Subagents (coming soon)
+└── .claude/               # Claude configuration
 ```
 
-## 사용법
+## Quick Start
 
-### 기본 워크플로우
+### Basic Workflow
 ```
-/overview           # 프로젝트 파악
-/build "기능 설명"   # 계획 세우기
-/clear              # 컨텍스트 정리
-/step 1             # 1단계 실행
-/clear              # 컨텍스트 정리
-/step 2             # 2단계 실행
+/overview              # Understand the project
+/plan "add feature X"  # Plan implementation
+/clear                 # Clean context
+/step 1                # Execute step 1
+/clear                 # Clean context
+/step 2                # Execute step 2
 ...
 ```
 
-### 코드 리뷰
+### Code Review
 ```
-/review src/file.ts           # 간단 리뷰
-/deep-review src/             # 심층 리뷰
-/deep-review --security       # 보안 집중
+/review src/file.ts           # Quick review
+/deep-review src/             # Comprehensive review
+/deep-review src/ --security  # Security focused
 ```
 
-## 설치
+## Installation
 
-Claude Code 프로젝트에서:
+Copy to your Claude Code configuration:
+
 ```bash
-# 커맨드 복사
+# Commands
 cp -r commands/* ~/.claude/commands/
 
-# 스킬 복사  
+# Skills
 cp -r skills/* ~/.claude/skills/
 
-# 규칙 복사
+# Rules
 cp -r rules/* ~/.claude/rules/
 ```
 
-## 업데이트
+## Key Principles
 
-도넛맨이 매일 10시에 새로운 커맨드/스킬 확인해서 알려드려요!
+1. **Plan before code** - Always understand before implementing
+2. **Verify your work** - Use tests, lint, and type checks
+3. **Manage context** - Use `/clear` between tasks
+4. **Token efficiency** - Read/write only what's needed
+
+## References
+
+- [Claude Code Best Practices](https://code.claude.com/docs/en/best-practices)
+- [everything-claude-code](https://github.com/affaan-m/everything-claude-code)

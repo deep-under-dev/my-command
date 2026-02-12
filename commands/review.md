@@ -1,32 +1,39 @@
-# /review - 코드 리뷰
+# /review - Quick Code Review
 
-## 사용법
+## Usage
 ```
-/review [파일경로 또는 PR번호]
+/review [file_path or PR_number]
 ```
 
-## 체크리스트
-- [ ] 버그 가능성
-- [ ] 보안 취약점
-- [ ] 성능 이슈
-- [ ] 코드 스타일
-- [ ] 테스트 커버리지
+## Purpose
+Fast, lightweight code review. Use `/deep-review` for comprehensive analysis.
 
-## 출력 형식
+## Checklist
+- [ ] Obvious bugs
+- [ ] Security red flags
+- [ ] Code style issues
+- [ ] Missing error handling
+- [ ] Test coverage
+
+## Output Format
 ```markdown
-## 요약
-[전체 평가]
+## Review: [target]
 
-## 이슈
-### 🔴 심각
-- 내용
+### Summary
+[One paragraph assessment]
 
-### 🟡 개선 필요
-- 내용
+### Issues
+- 🔴 [Critical issues]
+- 🟡 [Improvements needed]
+- 🟢 [Suggestions]
 
-### 🟢 제안
-- 내용
-
-## 승인 여부
-✅ 승인 / ❌ 수정 필요
+### Verdict
+✅ Approve / ❌ Request Changes
 ```
+
+## When to Use
+- Quick PR reviews
+- Sanity check before commit
+- Spot check specific files
+
+For thorough analysis, use `/deep-review` instead.

@@ -1,41 +1,54 @@
-# 워크플로우 규칙
+# Workflow Rules
 
-## 기본 원칙
+## Core Principles
 
-### 1. 계획 먼저
-- 코드 작성 전 항상 /plan 실행
-- 계획 없이 바로 코딩 금지
+### 1. Plan Before Code
+- Always run `/plan` or `/build` before implementing
+- No coding without understanding the task
+- Define success criteria upfront
 
-### 2. 컨텍스트 관리
-- 계획 완료 후 /clear
-- 각 단계 완료 후 /clear 권장
-- 토큰 절약 + 컨텍스트 오염 방지
+### 2. Context Management
+- `/clear` after completing each task
+- `/clear` after planning, before implementing
+- One session = one focused task
+- Prevents context pollution and saves tokens
 
-### 3. 단계별 진행
-- 한 번에 한 단계만 실행
-- 단계 완료 확인 후 다음 진행
-- 테스트 통과 필수
+### 3. Step-by-Step Execution
+- One step at a time
+- Verify completion before next step
+- Tests must pass before proceeding
+- Use `/step N` for structured execution
 
-### 4. 토큰 최소화
-- 불필요한 파일 읽기 금지
-- 필요한 부분만 수정
-- 긴 출력 대신 요약
+### 4. Token Efficiency
+- Read only what you need
+- Modify only what's necessary
+- Summarize over verbose explanations
+- Use subagents for large explorations
 
-## 플로우
+## Standard Workflow
 ```
-/plan "기능" 
+/overview           # Understand project (first time)
     ↓
-[계획 확인]
+/plan "feature"     # Create implementation plan
     ↓
-/clear
+[Review plan]
     ↓
-/step 1
+/clear              # Save context
     ↓
-[테스트 통과]
+/step 1             # Execute first step
     ↓
-/clear
+[Verify: tests, lint]
     ↓
-/step 2
+/clear              # Save context
     ↓
-...
+/step 2             # Execute next step
+    ↓
+...repeat...
 ```
+
+## Verification Checklist
+After each change:
+- [ ] Tests pass
+- [ ] Lint passes
+- [ ] Types check
+- [ ] Build succeeds

@@ -1,16 +1,38 @@
-# /step - 단계별 실행
+# /step - Execute Single Step
 
-## 사용법
+## Usage
 ```
-/step [단계번호]
+/step [step_number]
 ```
 
-## 동작
-1. 해당 단계만 실행
-2. 테스트 작성 → 구현 → 테스트 통과 확인
-3. 완료 후 다음 단계 안내
+## Purpose
+Execute one step from a previous `/plan` or `/build` output. Keeps context clean by focusing on one thing at a time.
 
-## 규칙
-- 한 번에 한 단계만
-- 단계 완료 후 /clear 권장
-- 다음 단계 전에 현재 단계 테스트 통과 필수
+## Flow
+1. Execute the specified step only
+2. Write tests first (TDD approach)
+3. Implement the change
+4. Verify (run tests, lint, typecheck)
+5. Report completion
+
+## Output Format
+```markdown
+## Step [N]: [Title]
+
+### Changes Made
+- `path/to/file.ts` - [what changed]
+
+### Verification
+✅ Tests pass
+✅ Lint pass
+✅ Types check
+
+### Next
+Run `/clear` then `/step [N+1]`
+```
+
+## Rules
+- One step at a time
+- Must verify before marking complete
+- Use `/clear` between steps to save context
+- If step fails, fix before proceeding

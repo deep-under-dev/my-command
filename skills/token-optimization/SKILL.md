@@ -1,32 +1,48 @@
-# 토큰 최적화 스킬
+---
+name: token-optimization
+description: Strategies to minimize token usage while maintaining effectiveness
+---
 
-## 목적
-최소한의 토큰으로 최대 효과
+# Token Optimization
 
-## 원칙
+## Why It Matters
+Claude's context window fills up fast. Performance degrades as it fills. Managing context is critical.
 
-### 1. 읽기 최소화
-- 전체 파일 대신 필요한 부분만
-- `read --offset --limit` 활용
-- 이미 본 파일 다시 읽지 않기
+## Principles
 
-### 2. 출력 최소화
-- 긴 설명 대신 핵심만
-- 코드 전체 대신 변경된 부분만
-- 반복되는 내용 생략
+### 1. Read Minimally
+- Read specific sections, not entire files
+- Use `read --offset --limit` for large files
+- Don't re-read files you've already seen
+- Let Claude fetch what it needs on demand
 
-### 3. 컨텍스트 관리
-- 작업 완료 후 /clear
-- 관련 없는 대화 섞지 않기
-- 한 세션 = 한 작업
+### 2. Output Minimally  
+- Summaries over full explanations
+- Show only changed code, not entire files
+- Skip repetitive content
+- No unnecessary confirmations
 
-### 4. 효율적 도구 사용
-- 여러 파일 수정 시 한 번에
-- 독립적인 작업은 병렬로
-- 불필요한 확인 질문 줄이기
+### 3. Manage Context
+- `/clear` after completing tasks
+- One session = one focused task
+- Don't mix unrelated conversations
+- Use subagents for large explorations
 
-## 안티패턴
-❌ 파일 전체 읽고 한 줄만 수정
-❌ 같은 내용 반복 설명
-❌ 이미 알고 있는 것 다시 확인
-❌ 작업마다 긴 인사말
+### 4. Efficient Tool Use
+- Batch multiple file edits together
+- Run independent operations in parallel
+- Avoid redundant verification questions
+- Trust verification commands (tests, lint)
+
+## Anti-Patterns
+❌ Reading entire file to change one line
+❌ Repeating the same explanation
+❌ Re-confirming known information
+❌ Long greetings/closings in every message
+❌ Asking "should I proceed?" when the task is clear
+
+## Context Window Tips
+- Track usage with status line
+- Compact when context > 70% full
+- Start fresh session for new tasks
+- Use CLAUDE.md for persistent context (loaded every session)

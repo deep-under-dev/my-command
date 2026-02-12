@@ -1,32 +1,52 @@
-# 검증 루프 스킬
+---
+name: verification
+description: Give Claude ways to verify its own work
+---
 
-## 목적
-Claude가 스스로 작업을 검증할 수 있게 함
+# Verification Loop
 
-## 원칙 (공식 문서 기반)
+## Why It Matters
+Claude performs dramatically better when it can verify its own work. Without verification, you become the only feedback loop.
 
-### 1. 검증 기준 먼저 정의
-- 코딩 전에 성공 조건 명확히
-- 테스트 케이스 예시 제공
-- "이렇게 되면 성공" 정의
+## Principles (From Claude Code Best Practices)
 
-### 2. 자동 검증 활용
-- 테스트 실행: `npm test`
-- 린트: `npm run lint`
-- 타입체크: `npm run typecheck`
-- 빌드: `npm run build`
+### 1. Define Success Criteria First
+Before coding:
+- What does "done" look like?
+- What test cases should pass?
+- What should the output be?
 
-### 3. UI 검증
-- 스크린샷 찍어서 비교
-- 원본 디자인과 대조
-- 차이점 리스트업
+**Bad:** "implement email validation"
+**Good:** "implement validateEmail. Test: user@example.com=true, invalid=false, user@=false. Run tests after."
 
-### 4. 근본 원인 해결
-- 에러 억제 금지
-- 왜 발생했는지 파악
-- 재발 방지
+### 2. Use Automated Verification
+- Tests: `npm test`, `pytest`
+- Lint: `npm run lint`, `eslint`
+- Types: `npm run typecheck`, `tsc`
+- Build: `npm run build`
 
-## 안티패턴
-❌ "잘 되는 것 같아요" (검증 없이)
-❌ 에러 메시지만 숨기기
-❌ 테스트 없이 "완료"
+### 3. Visual Verification (UI)
+- Take screenshots before/after
+- Compare to design mockups
+- List differences and fix them
+
+### 4. Fix Root Causes
+- Don't suppress errors
+- Don't skip failing tests
+- Understand WHY something broke
+- Prevent recurrence
+
+## Verification Commands
+```bash
+# Run after changes
+npm test           # or pytest, go test
+npm run lint       # or eslint, ruff
+npm run typecheck  # or tsc, mypy
+npm run build      # ensure it compiles
+```
+
+## Anti-Patterns
+❌ "It looks right" (no actual verification)
+❌ Hiding error messages
+❌ Marking "done" without tests passing
+❌ Skipping lint/type errors

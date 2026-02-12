@@ -1,39 +1,59 @@
-# /build - 기능 만들기 (전체 플로우)
+# /build - Feature Implementation
 
-## 사용법
+## Usage
 ```
-/build "기능 설명"
+/build "feature description"
 ```
 
-## 플로우
-1. **탐색** - 관련 코드 파악
-2. **계획** - 구현 단계 설계  
-3. **검증 기준 설정** - 테스트/성공 조건 정의
-4. **구현** - 단계별 코딩
-5. **검증** - 테스트 실행
+## Flow (Based on Claude Code Best Practices)
 
-## 규칙
-- 코딩 전에 항상 계획 먼저
-- 각 단계마다 검증
-- 큰 기능은 작은 단계로 분할
-- 완료 후 /clear 권장
+### 1. Explore
+- Read relevant files
+- Understand existing patterns
+- Check dependencies
 
-## 출력
+### 2. Plan
+- Break into small steps
+- Define file changes
+- Set verification criteria
+
+### 3. Confirm
+- Present plan to user
+- Wait for approval
+- Adjust if needed
+
+### 4. Implement
+- One step at a time
+- Write tests first (TDD)
+- Verify after each step
+
+### 5. Verify
+- Run tests
+- Run linter
+- Check types
+
+## Output Format
 ```markdown
-## 기능: [이름]
+## Feature: [name]
 
-### 1. 탐색 결과
-- 관련 파일: ...
-- 기존 패턴: ...
+### Exploration
+- Related files: ...
+- Existing patterns: ...
 
-### 2. 구현 계획
-1. [ ] 단계 1
-2. [ ] 단계 2
+### Implementation Plan
+1. [ ] Step 1 - description
+2. [ ] Step 2 - description
 
-### 3. 검증 방법
-- 테스트: ...
-- 성공 조건: ...
+### Verification
+- Tests: `npm test path/to/test`
+- Success criteria: ...
 
-### 4. 다음 액션
-"계획 확인 후 /clear 하고 '단계 1 진행' 이라고 해주세요"
+### Next Action
+After reviewing, run `/clear` then say "proceed with step 1"
 ```
+
+## Rules
+- Never code before planning
+- Each step must be independently verifiable
+- Always define success criteria upfront
+- Use `/clear` between major steps

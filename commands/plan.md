@@ -1,38 +1,48 @@
-# /plan - 기능 계획 세우기
+# /plan - Implementation Planning
 
-## 사용법
+## Usage
 ```
-/plan "기능 설명"
+/plan "feature or task description"
 ```
 
-## 동작
-1. 요구사항 분석
-2. 구현 단계 나누기
-3. 파일 구조 설계
-4. 테스트 계획
+## Purpose
+Create a detailed implementation plan WITHOUT writing code. Based on Claude Code's "Explore first, then plan, then code" principle.
 
-## 출력 형식
+## Steps
+1. Analyze requirements
+2. Explore relevant code
+3. Break into small steps
+4. Define verification for each step
+
+## Output Format
 ```markdown
-## 목표
-[한 줄 요약]
+## Goal
+[One-line summary]
 
-## 구현 단계
-1. [ ] 단계 1
-2. [ ] 단계 2
-...
+## Understanding
+- Current state: ...
+- Required changes: ...
+- Constraints: ...
 
-## 파일 변경
-- `path/to/file.ts` - 설명
+## Implementation Steps
+1. [ ] Step 1 - [description]
+   - Files: `path/to/file.ts`
+   - Verify: [how to verify]
+   
+2. [ ] Step 2 - [description]
+   - Files: `path/to/file.ts`
+   - Verify: [how to verify]
 
-## 테스트
-- [ ] 테스트 1
-- [ ] 테스트 2
+## Risks
+- [Potential issue and mitigation]
 
-## 다음 액션
-/clear 후 "단계 1 진행해줘" 라고 말하기
+## Next Action
+Review this plan. Then `/clear` and say "execute step 1"
 ```
 
-## 규칙
-- 계획만 세우고 코드 작성 안 함
-- 최대한 작은 단계로 나누기
-- 각 단계는 독립적으로 실행 가능해야 함
+## Rules
+- Planning only, no code execution
+- Break into smallest possible steps
+- Each step should be independently executable
+- Define verification criteria for each step
+- Use `/clear` after planning to save context

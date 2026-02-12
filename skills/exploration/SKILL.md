@@ -1,35 +1,51 @@
-# 탐색 우선 스킬
+---
+name: exploration
+description: Explore and understand before coding
+---
 
-## 목적
-코딩 전에 먼저 이해하기
+# Explore First
 
-## 플로우 (공식 문서 권장)
+## Why It Matters
+Jumping straight to coding produces code that solves the wrong problem. Understanding comes first.
 
-### 1단계: 탐색
-- 관련 파일 읽기
-- 기존 패턴 파악
-- 의존성 확인
+## The Four Phases (Claude Code Best Practices)
 
-### 2단계: 계획
-- 구현 단계 설계
-- 파일 변경 목록
-- 테스트 계획
+### Phase 1: Explore
+- Read relevant files
+- Understand existing patterns
+- Check how similar features work
+- Identify dependencies
 
-### 3단계: 확인
-- 사용자에게 계획 공유
-- 피드백 받기
-- 필요시 수정
+### Phase 2: Plan  
+- Break into small steps
+- Define changes per file
+- Set verification criteria
+- Identify risks
 
-### 4단계: 구현
-- 계획대로 진행
-- 단계별 검증
+### Phase 3: Confirm
+- Share plan with user
+- Get feedback
+- Adjust as needed
+- Then `/clear` to save context
 
-## Plan Mode 활용
-- 탐색/계획 시: Plan Mode 사용
-- 구현 시: 일반 모드
+### Phase 4: Implement
+- Follow the plan
+- One step at a time
+- Verify each step
+- `/clear` between steps
 
-## 질문 예시
-코드베이스 이해할 때:
-- "로깅이 어떻게 작동해?"
-- "새 API 엔드포인트 어떻게 만들어?"
-- "이 코드가 왜 foo() 대신 bar()를 호출해?"
+## Asking Good Questions
+When onboarding to a codebase:
+- "How does logging work?"
+- "How do I add a new API endpoint?"
+- "Why does this call foo() instead of bar()?"
+- "What edge cases does this handle?"
+
+## Using Plan Mode
+- Use for exploration/planning (read-only)
+- Switch to normal mode for implementation
+- Separates thinking from doing
+
+## Reference Existing Patterns
+**Bad:** "add a calendar widget"
+**Good:** "look at how HotDogWidget.php implements widgets. Follow the same pattern for a calendar widget."
